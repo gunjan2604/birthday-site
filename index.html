@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Shubhangi!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Dancing Script', cursive;
+            color: #6B7280;
+            overflow-x: hidden;
+        }
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            display: none;
+            position: relative;
+            background: linear-gradient(135deg, rgba(243, 232, 255, 0.5), rgba(134, 239, 172, 0.5));
+        }
+        #page1 {
+            background: url('https://wallpaperaccess.com/full/3298989.jpg') no-repeat center center/cover;
+            color: #fff;
+            position: relative;
+        }
+        #page1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        #page1 h1, #page1 button, #page1 img {
+            position: relative;
+            z-index: 2;
+        }
+        #page1 img {
+            width: 250px;
+            height: auto;
+            border: 3px solid #A78BFA;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        #page2 {
+            background: url('https://i.pinimg.com/originals/8a/5a/71/8a5a716aa6e86e09eda8ee9fae5b1ea6.png') no-repeat center center/cover;
+        }
+        #page3 {
+            background: url('https://wallpaperaccess.com/full/2734985.jpg') no-repeat center center/cover;
+        }
+        #page4 {
+            background: url('https://marketplace.canva.com/EAFpodaMV60/1/0/900w/canva-beige-neutral-cute-spring-aesthetic-phone-wallpaper-_NQ9tthmvfI.jpg') no-repeat center center/cover;
+        }
+        #page5 {
+            background: url('https://images.unsplash.com/photo-1517315003714-a071486bd9ea?ixlib=rb-1.2.1&w=1000&q=80') no-repeat center center/cover;
+        }
+        #page5 img {
+            width: 200px;
+            height: 200px;
+            border: 3px solid #A78BFA;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        #page6 {
+            background: url('https://cdn.wallpapersafari.com/2/67/nAcdho.jpg') no-repeat center center/cover;
+        }
+        #page6 img {
+            width: 250px;
+            height: auto;
+            border: 3px solid #A78BFA;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: #A78BFA;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        #page2 h1, #page3 h1, #page5 h1, #page6 h1 {
+            color: #7C3AED; /* Darker purple for better visibility */
+        }
+        #page3 p, #page5 p, #page6 p {
+            color: #4B5563; /* Darker gray for better visibility */
+        }
+        #page5 p {
+            font-size: 1.4rem; /* Slightly larger font size */
+            color: #1F2937; /* Even darker gray for better visibility */
+        }
+        #page6 p {
+            font-size: 1.4rem; /* Slightly larger font size */
+            color: #992ed6; /* Even darker gray for better visibility */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            font-family: 'Dancing Script', cursive;
+            background-color: #F3E8FF;
+            border: 2px solid #A78BFA;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #6B7280;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #86EFAC;
+            color: #fff;
+            transform: scale(1.05);
+        }
+        /* Collage Layout - Carousel (Slider) */
+        #collage {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 500px; /* Increased to fit larger images */
+            overflow: hidden;
+        }
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        .collage-item {
+            flex: 0 0 40%; /* Show 2.5 images at a time on larger screens */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .collage-item img {
+            max-width: 95%;
+            max-height: 400px; /* Increased size */
+            object-fit: contain;
+            border-radius: 8px;
+            border: 2px solid #A78BFA;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .collage-item:hover {
+            transform: scale(1.1);
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(167, 139, 250, 0.8);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .carousel-btn:hover {
+            background-color: #86EFAC;
+        }
+        .prev-btn {
+            left: 10px;
+        }
+        .next-btn {
+            right: 10px;
+        }
+        .carousel-instruction {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #7C3AED; /* Darker purple for better visibility */
+            opacity: 0.8;
+        }
+        /* Responsive Design for Carousel */
+        @media (max-width: 768px) {
+            .collage-item {
+                flex: 0 0 50%; /* Show 2 images at a time on medium screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .collage-item {
+                flex: 0 0 100%; /* Show 1 image at a time on small screens */
+            }
+        }
+        #page3 input {
+            padding: 10px;
+            font-size: 1rem;
+            margin: 10px;
+            border: 2px solid #A78BFA;
+            border-radius: 5px;
+            background: rgba(243, 232, 255, 0.8);
+        }
+        #error-message {
+            color: #EF4444;
+            font-size: 1rem;
+            display: none;
+        }
+        #confession-text {
+            font-size: 1.6rem;
+            color: #7C3AED; /* Darker purple for better visibility */
+            opacity: 0;
+            animation: type 3s steps(40) forwards;
+            max-height: 50vh;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(243, 232, 255, 0.6);
+            border-radius: 10px;
+        }
+        @keyframes type {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .floating-element {
+            position: fixed;
+            font-size: 2rem;
+            pointer-events: none;
+            animation: float 5s ease-in-out infinite;
+            z-index: 100;
+        }
+        .heart { color: #F472B6; }
+        .flower { color: #FBBF24; }
+        .balloon { color: #A78BFA; }
+        .star { color: #86EFAC; }
+        @keyframes float {
+            0% { transform: translate(0, 100vh) rotate(0deg); opacity: 0.8; }
+            50% { transform: translate(50vw, 50vh) rotate(180deg); opacity: 1; }
+            100% { transform: translate(100vw, 0) rotate(360deg); opacity: 0; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        #replay-btn {
+            animation: pulse 2s infinite;
+        }
+        @media print {
+            .page {
+                display: none;
+            }
+            #page2, #page4 {
+                display: flex;
+                position: static;
+                min-height: auto;
+                page-break-after: always;
+            }
+            #page2 {
+                background: none;
+            }
+            #page4 {
+                background: none;
+            }
+            .floating-element {
+                display: none !important;
+            }
+            button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-ukulele.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="page1" class="page">
+        <h1>Happiest Birthday, Shubhangi! 🎉💖</h1>
+        <img src="c:\Users\hp\Downloads\bgphoto1.jpeg" alt="Page 1 Photo">
+        <button onclick="showPage('page2')">Let’s Begin</button>
+    </div>
+
+    <div id="page2" class="page">
+        <h1>Hello, Miss Beautiful! 💖</h1>
+        <div id="collage">
+            <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">❮</button>
+            <div class="carousel-container" id="carousel">
+                <div class="collage-item">
+                    <img src="c:\Users\hp\Downloads\photo2.jpeg" alt="Image 1">
+                </div>
+                <div class="collage-item">
+                    <img src="c:\Users\hp\Downloads\photo3.jpeg" alt="Image 2">
+                </div>
+                <div class="collage-item">
+                    <img src="c:\Users\hp\Downloads\photo4.jpeg" alt="Image 3">
+                </div>
+                <div class="collage-item">
+                    <img src="c:\Users\hp\Downloads\photo5.jpeg" alt="Image 4">
+                </div>
+                <div class="collage-item">
+                    <img src="c:\Users\hp\Downloads\photo6.jpeg" alt="Image 5">
+                </div>
+                <div class="collage-item">
+                    <img src="c:\Users\hp\Downloads\photo7.jpeg" alt="Image 6">
+                </div>
+                <div class="collage-item">
+                    <img src="c:\Users\hp\Downloads\photo8.jpeg" alt="Image 7">
+                </div>
+                <div class="collage-item">
+                    <img src="c:\Users\hp\Downloads\photo9.jpeg" alt="Image 8">
+                </div>
+                <div class="collage-item">
+                    <img src="c:\Users\hp\Downloads\photo10.jpeg" alt="Image 9">
+                </div>
+                <div class="collage-item">
+                    <img src="c:\Users\hp\Downloads\photo11.jpeg" alt="Image 10">
+                </div>
+                <div class="collage-item">
+                    <img src="c:\Users\hp\Downloads\photo12.jpeg" alt="Image 11">
+                </div>
+            </div>
+            <button class="carousel-btn next-btn" onclick="moveSlide(1)">❯</button>
+        </div>
+        <p class="carousel-instruction">Slide to see more</p>
+        <button onclick="showPage('page3')">Next Surprise Waiting for You</button>
+    </div>
+
+    <div id="page3" class="page">
+        <h1>Hidden Message ✉️</h1>
+        <p>Enter your birthday date to unlock my message (e.g., 280502)</p>
+        <input type="text" id="password" placeholder="Enter date">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="error-message">Incorrect date, try again!</p>
+        <button id="confession-btn" style="display: none;" onclick="showPage('page4')">Open Confession</button>
+    </div>
+
+    <div id="page4" class="page">
+        <h1>Confession 🫶</h1>
+        <p id="confession-text">
+            Hey... Happy Birthday! 🎉✨<br>
+            Today’s your special day, and I genuinely wish that it's as beautiful as you are — inside and out. You truly deserve all the happiness and success in life. Watching you grow into a confident, focused, and grounded person has been inspiring. ✨🎂<br><br>
+            And… this isn't just a birthday wish — it’s a little piece of my heart. Something I’ve wanted to say for a while now. I wasn’t sure when or how, but I felt this was the right time… as one chapter of our life closes and another begins.<br><br>
+            I still remember the first time we talked on WhatsApp, when I randomly asked, "Can we be friends?" I even remember your display picture back then. And when we met for the first time in college — the way you commented on my long hair — those little moments have somehow stayed with me. 💬👩‍🦰<br><br>
+            Initially, I felt maybe you preferred staying in your comfort zone, mostly around Adi since you knew him from before. I assumed I was probably just another classmate to you. But slowly, we started talking more… and I got to know you a little better. I think our bond started getting stronger during the workshop we attended together. That time meant a lot to me.<br><br>
+            But yeah... there were also moments that left me confused and honestly, a little hurt. There were times when I felt like maybe I was the only one who valued this friendship the way I did. Maybe I overthought... maybe I expected too much.💭<br><br>
+            Sometimes I stepped back because I didn’t want to feel like I was forcing myself into your space. I felt I wasn’t someone you’d miss if I stopped talking. And maybe I was wrong. Maybe you never meant to make me feel that way. But it stayed in my heart.<br><br>
+            Despite all this, I never stopped valuing the moments we shared — the random talks, the serious ones, and everything in between. And I still believe — no matter how many people come into my life, your place will always be different. 🌟🤗<br><br>
+            There’s one thing I deeply respect about you — when I needed someone, when I truly needed a friend... you were there. Maybe you didn’t realize it, but it meant a lot. You might not show it to everyone, but for the ones close to you — you’re the kind of friend people wish for. And that’s what makes you special to me.<br><br>
+            I don’t know where I stand in your life — whether I ever mattered even a little or not. I didn’t expect a lot — just a little reassurance once in a while would have been enough. 💭❓<br><br>
+            I just wanted to say what’s been in my heart — honestly and respectfully.💖<br><br>
+            What you take from this is totally up to you.<br><br>
+            Just… thankkk youuuuuuu.<br>
+            Thank you for the real moments, for being there when it mattered, and for being you.<br>
+            You’ll always be a little special to me, no matter what.<br>
+            And once again, Happyyyy Birthdayyyy.<br>
+            May life bring you everything beautiful — love, peace, laughter, and success. 🎁🌈<br><br>
+            ILY always — as a friend and a memory. 💛🌸
+        </p>
+        <p>~ Gunjan</p>
+        <button onclick="showPage('page5')">Watch Something Special</button>
+    </div>
+
+    <div id="page5" class="page">
+        <h1>Surprise Video 🎥</h1>
+        <img src="c:\Users\hp\Downloads\frame.jpg" alt="QR Code for Surprise Video">
+        <p>Scan the QR code above to watch your special video!</p>
+        <p>This is for you....</p>
+        <button onclick="showPage('page6')">Next</button>
+    </div>
+
+    <div id="page6" class="page">
+        <h1>Ending 🎁</h1>
+        <img src="c:\Users\hp\Downloads\bgphoto.jpeg" alt="Ending Photo">
+        <p>No matter what our bond becomes… you’ll always be special.</p>
+        <button id="replay-btn" onclick="replayExperience()">Replay Our Journey</button>
+    </div>
+
+    <script>
+        document.getElementById('page1').style.display = 'flex';
+
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.collage-item');
+        const totalItems = items.length;
+        const visibleItems = () => window.innerWidth <= 480 ? 1 : window.innerWidth <= 768 ? 2 : 2.5;
+
+        function moveSlide(direction) {
+            const itemsToShow = visibleItems();
+            currentIndex = (currentIndex + direction + totalItems) % totalItems;
+
+            // Adjust the index to prevent showing empty space at the end
+            const maxIndex = Math.max(0, totalItems - itemsToShow);
+            if (currentIndex > maxIndex) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = maxIndex;
+            }
+
+            const offset = -currentIndex * (100 / itemsToShow);
+            document.getElementById('carousel').style.transform = `translateX(${offset}%)`;
+        }
+
+        // Adjust carousel on window resize
+        window.addEventListener('resize', () => {
+            moveSlide(0); // Recalculate position on resize
+        });
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
+            document.getElementById(pageId).style.display = 'flex';
+            startFloatingElements();
+        }
+
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+            const confessionBtn = document.getElementById('confession-btn');
+            if (password === '280502') {
+                errorMessage.style.display = 'none';
+                confessionBtn.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'block';
+                confessionBtn.style.display = 'none';
+            }
+        }
+
+        function createFloatingElement(type) {
+            const element = document.createElement('div');
+            element.classList.add('floating-element', type);
+            element.innerHTML = {
+                'heart': '💖',
+                'flower': '🌸',
+                'balloon': '🎈',
+                'star': '✨'
+            }[type];
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(element);
+            setTimeout(() => element.remove(), 5000);
+        }
+
+        function startFloatingElements() {
+            clearInterval(window.floatingHeartInterval);
+            clearInterval(window.floatingFlowerInterval);
+            clearInterval(window.floatingBalloonInterval);
+            clearInterval(window.floatingStarInterval);
+            window.floatingHeartInterval = setInterval(() => createFloatingElement('heart'), 150);
+            window.floatingFlowerInterval = setInterval(() => createFloatingElement('flower'), 200);
+            window.floatingBalloonInterval = setInterval(() => createFloatingElement('balloon'), 250);
+            window.floatingStarInterval = setInterval(() => createFloatingElement('star'), 200);
+        }
+
+        function replayExperience() {
+            showPage('page1');
+        }
+
+        startFloatingElements();
+    </script>
+</body>
+</html>
